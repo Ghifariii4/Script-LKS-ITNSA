@@ -6,6 +6,7 @@
       win_shell: |
         $nodeName = ("{{ site_name}}" -split '\.')[0]
         Add-DnsServerResourceRecordA -Name $nodeName -ZoneName "lab.itnsa.id" -IPv4Address "10.1.1.10" -ErrorAction SilentlyContinue
+      ignore_errors: yes
 
     - name: 2. Create root directory for website
       win_file:
