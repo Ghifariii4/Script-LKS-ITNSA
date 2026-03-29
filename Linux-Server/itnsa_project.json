@@ -1,0 +1,5 @@
+{
+    "project_name": "ITNSA_Project",
+    "full_acccess": "Manager",
+    "read_only": "Employee"
+}

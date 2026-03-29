@@ -1,0 +1,17 @@
+---
+- name: Shared Folder Deployment
+  hosts: SRV.itnsa.id
+  vars_files:
+    - /etc/ansible/itnsa_project.json
+  tasks:
+    - name: Create project directory
+      ein_file:
+        path: "C:\\Shared Folder\\{{ project_name }}"
+        state: directory
+
+    - name: Configure Shared Folder With Permissions
+      win_share:
+        name: "{{ project_name }}"
+        path: "C:\\Shared Folder\\{{ project_name }}"
+        full: "{{ full_acccess }}"
+        read: "{{ read_only }}"
