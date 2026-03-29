@@ -8,21 +8,19 @@
         Add-DnsServerResourceRecordA -Name $nodeName -ZoneName "lab.itnsa.id" -IPv4Address "10.1.1.10" -ErrorAction SilentlyContinue
 
     - name: 2. Create root directory for website
-      win_file: 
+      win_file:
         path: C:\project_website\{{ site_name }}
         state: directory
-    
+
     - name: 3. Configure default index content for website
-      win_copy: 
+      win_copy:
         content: "{{ site_name }}"
         dest: C:\project_website\{{ site_name}}\index.html
 
     - name: 4. Create new IIS website
-      win_iis_website: 
+      win_iis_website:
         name: "{{ site_name }}"
         state: started
         port: 80
         hostname: "{{ site_name }}"
-        pysical_path: C:\project_website\{{ site_name }}
-
-
+        physical_path: C:\project_website\{{ site_name }}
