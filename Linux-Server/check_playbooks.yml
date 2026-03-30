@@ -1,0 +1,13 @@
+---
+- name: Check Playbooks Configuration
+  hosts: windows
+  tasks:
+    - name: 1. Ensure directory C:\ITNSA\ exists
+      win_file:
+        path: C:\ITNSA
+        state: directory
+
+    - name: 2. Create ansible_ready.txt
+      win_copy:
+        content: "Ansible Connected"
+        dest: C:\ITNSA\ansible_ready.txt
