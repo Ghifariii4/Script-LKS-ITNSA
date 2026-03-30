@@ -1,0 +1,17 @@
+windows:
+  hosts:
+    SRv.itnsa.id:
+      ansible_host: 192.168.1.100
+    DC.itnsa.id:
+      ansible_host: 10.1.1.10
+  vars:
+    ansible_user: itnsa\Administrator
+    ansible_password: Skill39@2025
+    ansible_connection: 'winrm'
+    ansible_winrm_transport: 'ntlm'
+    ansible_port: 5985
+    ansible_winrm_scheme: 'http'
+    ansible_winrm_cert_validation: 'ignore'
+
+
+    
